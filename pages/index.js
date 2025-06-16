@@ -349,7 +349,7 @@ export default function Home() {
               </h3>
               <p style={{ fontSize: 18 }}>
                 Our students were admitted to Princeton, Berkeley, Dartmouth,
-                Northwestern, John's Hopkins, Brown, UPenn, UCLA, and other top
+                Northwestern, Johns Hopkins, Brown, UPenn, UCLA, and other top
                 universities.
               </p>
             </div>
