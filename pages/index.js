@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link"; // Added Link import
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -111,6 +112,30 @@ export default function Home() {
           >
             Get Started Today
           </a>
+        </div>
+      </section>
+
+      {/* Webinar Info Section */}
+      <section id="webinar-info" className="about"> {/* Reusing about section styles */}
+        <div className="container">
+          <div className="section-title">
+            <h2>Attend Our Free Webinar</h2>
+            <p>Learn how to navigate the college admissions process successfully.</p>
+          </div>
+          <div className="about-content">
+            <p>
+              Join Polaris Consulting for an informative webinar session where we'll discuss [Key topics of the webinar, e.g., essay writing, application strategies, choosing the right college]. Our experts will share valuable insights and answer your questions to help you prepare for your college journey.
+            </p>
+            <br />
+            <p>
+              This session is perfect for [Target audience, e.g., high school students and their parents]. Don't miss this opportunity to get a head start on your college applications!
+            </p>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+              <Link href="/webinar" legacyBehavior>
+                <a className="cta-btn">Sign Up for the Webinar</a>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
