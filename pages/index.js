@@ -131,7 +131,6 @@ export default function Home() {
             <br />
             <p>
               <strong>Info Session Dates:</strong> June 25 or June 29, 9am EST<br />
-              <strong>Register on:</strong> <a href="https://www.polarisconsult.org" target="_blank" rel="noopener noreferrer">www.polarisconsult.org</a>
             </p>
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
               <Link href="/webinar" legacyBehavior>
