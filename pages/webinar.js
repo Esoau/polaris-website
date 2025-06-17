@@ -112,13 +112,14 @@ export default function Webinar() {
       </section>
 
       {/* Webinar Sign-Up Section */}
-      <section id="webinar-signup" className="contact"> {/* Using contact styles for similarity */}
-        <div className="container">
-          <div className="section-title">
-            <h2>Register for the Info Session</h2>
-            <p>Fill out the form below to reserve your spot for June 25 or June 29 at 9am EST.</p>
+      <section id="webinar-signup" className="contact">
+        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '40px' }}>
+          {/* Flyer Image */}
+          <div style={{ flex: '1 1 350px', minWidth: 320, maxWidth: 420, margin: '0 auto' }}>
+            <img src="/flyer.png" alt="Polaris Consulting Info Session Flyer" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }} />
           </div>
-          <div className="contact-form-container">
+          {/* Sign-Up Form */}
+          <div className="contact-form-container" style={{ flex: '1 1 350px', minWidth: 320, maxWidth: 600 }}>
             <form ref={webinarFormRef} onSubmit={handleWebinarSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
