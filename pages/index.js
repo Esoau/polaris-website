@@ -2,7 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link"; // Added Link import
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +19,7 @@ export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const contactFormRef = useRef(null);
+  const router = useRouter();
 
   // Handle contact form submit
   const handleContactSubmit = (e) => {
@@ -52,7 +54,7 @@ export default function Home() {
       {/* Header & Navigation */}
       <header>
         <div className="container nav-container">
-          <div className="logo">
+          <div className="logo" style={{ cursor: 'pointer' }} onClick={() => router.push("/")}> 
             <img src="/Logo.png" alt="Polaris Logo" className="logo-img" />
             <div className="logo-text">
               Polaris <span>Consulting</span>
