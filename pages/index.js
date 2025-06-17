@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -44,6 +44,43 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    let lastScrollY = window.scrollY;
+    let scrollingDown = true;
+
+    const onScroll = () => {
+      scrollingDown = window.scrollY > lastScrollY;
+      lastScrollY = window.scrollY;
+    };
+    window.addEventListener('scroll', onScroll);
+
+    const revealSection = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+        } else {
+          const rect = entry.target.getBoundingClientRect();
+          // Hide if section is below the viewport (scrolling down or up)
+          if (rect.top > window.innerHeight) {
+            entry.target.classList.remove("section-visible");
+          }
+        }
+      });
+    };
+    const observer = new window.IntersectionObserver(revealSection, {
+      threshold: 0.15,
+    });
+    sections.forEach(section => {
+      section.classList.add("section-hidden");
+      observer.observe(section);
+    });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -54,7 +91,11 @@ export default function Home() {
       {/* Header & Navigation */}
       <header>
         <div className="container nav-container">
-          <div className="logo" style={{ cursor: 'pointer' }} onClick={() => router.push("/")}> 
+          <div
+            className="logo"
+            style={{ cursor: "pointer" }}
+            onClick={() => router.push("/")}
+          >
             <img src="/Logo.png" alt="Polaris Logo" className="logo-img" />
             <div className="logo-text">
               Polaris <span>Consulting</span>
@@ -118,21 +159,34 @@ export default function Home() {
       </section>
 
       {/* Webinar Info Section */}
-      <section id="webinar-info" className="about"> {/* Reusing about section styles */}
+      <section id="webinar-info" className="about">
+        {/* Reusing about section styles */}
         <div className="container">
           <div className="section-title">
             <h2>Polaris Consulting Info Session</h2>
-            <p>Join us for a free information session on June 25 or June 29 at 9am EST!</p>
+            <p>
+              Join us for a free information session on June 25 or June 29 at 9am
+              EST!
+            </p>
           </div>
           <div className="about-content">
             <p>
-              Learn about our services, including College Essay Writing, Application Construction, and developing an Admissions Strategy. Meet our team from Northwestern University and get your questions answered about the college admissions process.
+              Learn about our services, including College Essay Writing,
+              Application Construction, and developing an Admissions Strategy.
+              Meet our team from Northwestern University and get your questions
+              answered about the college admissions process.
             </p>
             <br />
             <p>
-              <strong>Info Session Dates:</strong> June 25 or June 29, 9am EST<br />
+              <strong>Info Session Dates:</strong> June 25 or June 29, 9am EST
+              <br />
             </p>
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            <div
+              style={{
+                marginTop: "20px",
+                textAlign: "center",
+              }}
+            >
               <Link href="/webinar" legacyBehavior>
                 <a className="cta-btn">Sign Up for the Info Session</a>
               </Link>
@@ -340,7 +394,7 @@ export default function Home() {
           </div>
           <div className="team-intro">
             <p>
-              Our team consists of admits from top-tier universities including
+              Our team consists of admits from top universities including
               Harvard, Princeton, Oxford, Northwestern, and other prestigious
               institutions. Each consultant has not only navigated the complex
               admissions process successfully but has also helped numerous
@@ -439,14 +493,6 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#services"
-                    onClick={(e) => handleSmoothScroll(e, "#services")}
-                  >
-                    Our Services
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="#team"
                     onClick={(e) => handleSmoothScroll(e, "#team")}
                   >
@@ -463,27 +509,10 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="footer-links">
-              <h3>Services</h3>
-              <ul>
-                <li>
-                  <a href="#">Essay Coaching</a>
-                </li>
-                <li>
-                  <a href="#">Application Strategy</a>
-                </li>
-                <li>
-                  <a href="#">Interview Preparation</a>
-                </li>
-                <li>
-                  <a href="#">Test Preparation</a>
-                </li>
-              </ul>
-            </div>
             <div className="footer-contact">
               <h3>Contact Info</h3>
-              <p>Email: ycc@u.northwestern.edu</p>
-              <p>Phone: (425) 209-7723</p>
+              <p>Email: consultants.polaris@gmail.com</p>
+              <p>Phone: +1 (425) 209-7723</p>
               <p>WeChat: happycharliesun88</p>
             </div>
           </div>
@@ -541,6 +570,21 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <style jsx global>{`
+        /* ...existing styles... */
+
+        section.section-hidden {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        section.section-visible {
+          opacity: 1;
+          transform: none;
+        }
+      `}</style>
     </>
   );
 }
