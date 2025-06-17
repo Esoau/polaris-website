@@ -119,20 +119,21 @@ export default function Home() {
       <section id="webinar-info" className="about"> {/* Reusing about section styles */}
         <div className="container">
           <div className="section-title">
-            <h2>Attend Our Free Webinar</h2>
-            <p>Learn how to navigate the college admissions process successfully.</p>
+            <h2>Polaris Consulting Info Session</h2>
+            <p>Join us for a free information session on June 25 or June 29 at 9am EST!</p>
           </div>
           <div className="about-content">
             <p>
-              Join Polaris Consulting for an informative webinar session where we'll discuss [Key topics of the webinar, e.g., essay writing, application strategies, choosing the right college]. Our experts will share valuable insights and answer your questions to help you prepare for your college journey.
+              Learn about our services, including College Essay Writing, Application Construction, and developing an Admissions Strategy. Meet our team from Northwestern University and get your questions answered about the college admissions process.
             </p>
             <br />
             <p>
-              This session is perfect for [Target audience, e.g., high school students and their parents]. Don't miss this opportunity to get a head start on your college applications!
+              <strong>Info Session Dates:</strong> June 25 or June 29, 9am EST<br />
+              <strong>Register on:</strong> <a href="https://www.polarisconsult.org" target="_blank" rel="noopener noreferrer">www.polarisconsult.org</a>
             </p>
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
               <Link href="/webinar" legacyBehavior>
-                <a className="cta-btn">Sign Up for the Webinar</a>
+                <a className="cta-btn">Sign Up for the Info Session</a>
               </Link>
             </div>
           </div>
