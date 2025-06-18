@@ -20,6 +20,7 @@ export default function Webinar() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [toast, setToast] = useState({ show: false, message: "" });
+  const [role, setRole] = useState("");
   const webinarFormRef = useRef(null);
   const router = useRouter();
 
@@ -33,6 +34,7 @@ export default function Webinar() {
     const name = formData.get("name");
     const email = formData.get("email");
     const date = formData.get("date");
+    const role = formData.get("role");
 
     try {
       const response = await fetch("/api/webinar-signup", {
@@ -40,7 +42,7 @@ export default function Webinar() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, date }),
+        body: JSON.stringify({ name, email, date, role }),
       });
 
       if (!response.ok) {
@@ -136,6 +138,44 @@ export default function Webinar() {
                   <option value="June 25, 2025">June 25, 2025</option>
                   <option value="June 29, 2025">June 29, 2025</option>
                 </select>
+              </div>
+              <div className="form-group">
+                <label>Are you a student or guardian?</label>
+                <div style={{ display: 'flex', gap: '16px', marginTop: 8 }}>
+                  <button
+                    type="button"
+                    className={`role-btn${role === 'student' ? ' selected' : ''}`}
+                    onClick={() => setRole('student')}
+                    style={{
+                      padding: '8px 16px',
+                      borderRadius: 6,
+                      border: '1px solid #ccc',
+                      background: role === 'student' ? '#0070f3' : '#fff',
+                      color: role === 'student' ? '#fff' : '#222',
+                      cursor: 'pointer',
+                      fontWeight: 500
+                    }}
+                  >
+                    Student
+                  </button>
+                  <button
+                    type="button"
+                    className={`role-btn${role === 'guardian' ? ' selected' : ''}`}
+                    onClick={() => setRole('guardian')}
+                    style={{
+                      padding: '8px 16px',
+                      borderRadius: 6,
+                      border: '1px solid #ccc',
+                      background: role === 'guardian' ? '#0070f3' : '#fff',
+                      color: role === 'guardian' ? '#fff' : '#222',
+                      cursor: 'pointer',
+                      fontWeight: 500
+                    }}
+                  >
+                    Guardian
+                  </button>
+                </div>
+                <input type="hidden" name="role" value={role || ''} required />
               </div>
               <div className="form-group">
                 <label htmlFor="questions">Questions/Comments (Optional)</label>
