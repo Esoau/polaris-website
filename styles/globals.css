@@ -103,15 +103,13 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(20deg, #4776E6 0%, #1a2a6c 100%);
+    background: linear-gradient(20deg, #0a123e 0%, #033658 100%);
     height: 80vh;
     color: var(--white);
     display: flex;
     align-items: center;
     text-align: center;
     margin-top: 80px;
-    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 .hero-content { 
