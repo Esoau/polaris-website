@@ -482,9 +482,7 @@ export default function Home() {
             </div>
             <div className="footer-contact">
               <h3>Contact Info</h3>
-              <p>Email: ycc@u.northwestern.edu</p>
-              <p>Phone: (425) 209-7723</p>
-              <p>WeChat: happycharliesun88</p>
+              <p>Email: consultants.polaris@gmail.com</p>
             </div>
           </div>
           <div className="copyright">
