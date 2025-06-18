@@ -340,7 +340,7 @@ export default function Home() {
           </div>
           <div className="team-intro">
             <p>
-              Our team consists of admits from top-tier universities including
+              Our team consists of admits from top universities including
               Harvard, Princeton, Oxford, Northwestern, and other prestigious
               institutions. Each consultant has not only navigated the complex
               admissions process successfully but has also helped numerous
