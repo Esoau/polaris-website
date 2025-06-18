@@ -512,8 +512,6 @@ export default function Home() {
             <div className="footer-contact">
               <h3>Contact Info</h3>
               <p>Email: consultants.polaris@gmail.com</p>
-              <p>Phone: +1 (425) 209-7723</p>
-              <p>WeChat: happycharliesun88</p>
             </div>
           </div>
           <div className="copyright">
