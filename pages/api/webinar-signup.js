@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 Thank you for registering for the Polaris Consulting Info Session happening on ${date} at 9:00 AM EST.
 
 Here is the Zoom link for the session:
-[Insert Zoom/meeting link here]
+https://us05web.zoom.us/j/8315104346?pwd=VV4D2u3cLJFdbIa4F8fU12uTfkHWHH.1
 
 If you have any questions, please contact consultants.polaris@gmail.com or visit www.polarisconsult.org.
 `,
