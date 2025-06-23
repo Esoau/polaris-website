@@ -32,13 +32,13 @@ export default async function handler(req, res) {
 Thank you for registering for the Polaris Consulting Info Session happening on ${date} at 9:00 AM EST.
 
 Here is the Zoom link for the session:
-[Insert Zoom/meeting link here]
+https://us05web.zoom.us/j/8315104346?pwd=VV4D2u3cLJFdbIa4F8fU12uTfkHWHH.1
 
 If you have any questions, please contact consultants.polaris@gmail.com or visit www.polarisconsult.org.
 `,
       html: `<p>Hi ${name}!</p>
 <p>Thank you for registering for the <strong>Polaris Consulting Info Session</strong> happening on <strong>${date} at 9:00 AM EST</strong>.</p>
-<p>Here is the Zoom link for the session:<br><a href="[Insert Zoom/meeting link here]">[Insert Zoom/meeting link here]</a></p>
+<p>Here is the Zoom link for the session:<br><a href="https://us05web.zoom.us/j/8315104346?pwd=VV4D2u3cLJFdbIa4F8fU12uTfkHWHH.1">https://us05web.zoom.us/j/8315104346?pwd=VV4D2u3cLJFdbIa4F8fU12uTfkHWHH.1</a></p>
 <p>If you have any questions, please contact <a href="mailto:consultants.polaris@gmail.com">consultants.polaris@gmail.com</a> or visit <a href="https://www.polarisconsult.org">www.polarisconsult.org</a>.</p>`,
     };
 
